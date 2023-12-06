@@ -5,38 +5,52 @@ body {
     padding: 0;
 }
 
+
 @keyframes pulse {
     0%, 100% {
-        transform: scale(1);
+        transform: translateX(0);
         opacity: 1;
     }
+    25% {
+        transform: translateX(20px);
+        opacity: 0.8;
+    }
     50% {
-        transform: scale(1.1);
+        transform: translateX(40px);
+        opacity: 1;
+    }
+    75% {
+        transform: translateX(20px);
         opacity: 0.8;
     }
 }
 
-/* Corrected the animation name to "pulse" */
-header {
+#i3 {
+    position: relative;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 40px;
     width: 100%;
     text-align: center;
     margin: 25px;
-    animation: pulse 2s reverse;
-}
-
-h1 {
-    color: red;
-  
+    z-index: 1000;
+    animation: pulse 4s infinite; /* Adjust the duration and iteration as needed */
+    color: red; /* Apply red color to the element */
 }
 
 
 
-/* Styles for the navbar */
+
 .navbar {
+    position: fixed;
+    top: 25px; /* Adjust the top margin as needed */
+    right: 25px; /* Adjust the right margin as needed */
+    z-index: 1000;
     padding: 10px 20px;
-    background-color:transparent; /* Light background color */
-    border-bottom: 1px solid #dee2e6; /* Border at the bottom */
-    width: 90;
+    background-color: transparent;
+    border-bottom: 1px solid #dee2e6;
+    width: auto; /* Adjust the width as needed */
 }
 .navbar:hover {
     background-color: #e2e6ea; /* Change background color on hover */
@@ -44,18 +58,28 @@ h1 {
 
 /* Styles for the form */
 .form-inline {
-    
-    width:90;
-    display: flex;
-    justify-content: flex-end; /* Align the form items to the right */
-    
+    width: 90;
+    gap: 5px;
+    /* Other styles for your form */
 }
+
+.container-wrapper {
+    position: relative;
+    margin-top: 20px; /* Adjust this value based on your header height */
+}
+
 
 /* Styles for the search input */
 .form-control {
     width: 150px;
     height: 22px;
     background-color: white;
+    font-family: arial;
+    
+}
+.mr-sm-2{
+    font-family: arial;
+    font-weight: bolder;
 }
 .form-control:focus {
     border-color: #28a745; /* Change border color on input focus */
@@ -73,12 +97,9 @@ h1 {
 /* Styles for the search button */
 .btn-outline-success {
     margin-left: 10px; /* Add some spacing between the input and button */
-    width: auto;
     height: 22px;
-    display: flex;
-    
+    width: auto;
 }
-
 
 .album {
     position: relative;
@@ -120,11 +141,17 @@ h1 {
 }
 
 .container-fluid {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: 20px;
     display: flex;
     justify-content: space-evenly;
     align-items: flex-end;
-    padding: 20px;
+    padding: 120px;
 }
+
 
 .d-flex {
     display: flex;
@@ -192,19 +219,16 @@ p:hover {
 
 .container {
     display: grid;
-    padding: 20px;
-    margin: 30px;
+    max-width: 1200px;
+    margin: 30px auto 0; /* Adjusted margin to shift container to the top */
+    padding: 30px;
     grid-template-columns: repeat(4, 1fr);
     gap: 20px;
     justify-content: space-around;
-    align-items: center;
+    align-items: flex-end; /* Align items to the bottom */
     flex-wrap: nowrap;
 }
 
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-}
 
 .footer {
     display: flex;
